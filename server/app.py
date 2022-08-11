@@ -7,7 +7,6 @@ i = 1
 @app.route("/index")
 def index():
     global i
-    i += 1
     return str(i)
 
 @app.route("/cmd")
