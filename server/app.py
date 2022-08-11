@@ -2,7 +2,15 @@ import flask
 
 app = flask.Flask("app")
 
-@app.route("/test")
+i = 0
+
+@app.route("/index")
+def index():
+    global i
+    i += 1
+    return str(i)
+
+@app.route("/cmd")
 def test():
     x = open("action.txt")
     return str(x.read())

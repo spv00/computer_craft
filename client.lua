@@ -4,20 +4,28 @@ function get(dir)
     return http.get(url + dir).readAll()
 end
 
-cmd = get("test")
+cmd = get("cmd")
+i = 0
 
-if cmd == "forward" then
-    turtle.forward()
-end
-
-if cmd == "back" then
-    turtle.back()
-end
-
-if cmd == "left" then
-    turtle.turnLeft()
-end
-
-if cmd == "right" then
-    turtle.turnRight()
+while true do
+    oldi = i
+    i = get("index")
+    if i > oldi then
+        i = i + 1
+        if cmd == "forward" then
+            turtle.forward()
+        end
+        
+        if cmd == "back" then
+            turtle.back()
+        end
+        
+        if cmd == "left" then
+            turtle.turnLeft()
+        end
+        
+        if cmd == "right" then
+            turtle.turnRight()
+        end
+    end
 end
