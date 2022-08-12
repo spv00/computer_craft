@@ -7,7 +7,7 @@ i = 1
 @app.route("/increase")
 def increase():
     global i
-    i += i
+    i += 1
     return str(i)
 
 @app.route("/index")

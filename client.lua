@@ -9,9 +9,10 @@ i = 0
 while true do
     oldi = i
     i = tonumber(get("index"))
-    if i < oldi then
+    if i > oldi then
         cmd = get("cmd")
         i = i + 1
+
         if cmd == "forward" then
             turtle.forward()
         end
