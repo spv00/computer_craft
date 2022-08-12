@@ -4,6 +4,12 @@ app = flask.Flask("app")
 
 i = 1
 
+@app.route("/increase")
+def increase():
+    global i
+    i += i
+    return str(i)
+
 @app.route("/index")
 def index():
     global i
