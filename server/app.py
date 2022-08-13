@@ -29,9 +29,9 @@ def resp():
     data = flask.request.get_data().strip().split(b",")
     print(data)
     index = int(data[0])
-    #if index >= i:
-    print("BRUH")
-    next_step()
+    if index >= i:
+        print("BRUH")
+        next_step()
     return str(data)
 
 @app.route("/setcmd/<newcmd>")
