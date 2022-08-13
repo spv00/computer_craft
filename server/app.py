@@ -30,9 +30,10 @@ def catch_all(path):
 
 @app.route("/kill")
 def kill():
-    global cmd
+    global cmd, queue
+    queue.clear()
+    queue.append("abort")
     cmd = "abort"
-    exit()
     return "aborted"
 
 @app.route("/terminate")
