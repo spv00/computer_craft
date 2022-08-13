@@ -15,7 +15,7 @@ cmd = "none"
 
 @app.route("/terminate")
 def terminate():
-    global cmd
+    global cmd, terminated
     terminated = True
     return "Terminated"
 
