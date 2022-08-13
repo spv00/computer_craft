@@ -10,7 +10,7 @@ queue: list = [
 
 ]
 
-cmd = "left"
+cmd = "none"
 
 @app.route("/increase")
 def increase():
