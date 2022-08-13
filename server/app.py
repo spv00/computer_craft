@@ -25,6 +25,7 @@ def next_step():
     global i
     if len(queue) >= i:
         cmd = queue[i]
+        increase()
 
 @app.route("/resp", methods=["POST"])
 def resp():
@@ -32,7 +33,6 @@ def resp():
     print(data)
     index = int(data[0])
     if index >= i:
-        increase()
         next_step()
     return str(data)
 

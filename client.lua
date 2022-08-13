@@ -17,7 +17,7 @@ while true do
     print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
     if serveri > oldi then
         cmd = get("cmd")
-
+        oldi = oldi + 1
         if cmd == "forward" then
             turtle.forward()
             resp("resp", oldi, "ok")
@@ -43,5 +43,4 @@ while true do
             resp("resp", oldi, "ok")
         end
     end
-    oldi = oldi + 1
 end
