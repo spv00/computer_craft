@@ -29,7 +29,7 @@ def resp():
     data = flask.request.get_data().strip().split(b",")
     print(data)
     index = int(data[0])
-    if index >= i:
+    if index <= i:
         print("BRUH")
         next_step()
     return str(data)
