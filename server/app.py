@@ -41,7 +41,7 @@ def resp():
 
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):
-    queue.append(list(newcmd.split(",")))
+    queue.append(newcmd.split("+"))
     print(queue)
     return f"ok - {cmd}"
 
@@ -63,7 +63,8 @@ def index():
 
 @app.route("/cmd")
 def test():
-    return cmd
+    global cmd
+    return ','.join(cmd)
 
 if __name__ == "__main__":
     app.run()

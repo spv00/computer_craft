@@ -8,6 +8,18 @@ function resp(dir, index, data)
     http.post(url .. dir, index .. "," .. data)
 end
 
+function split (inputstr, sep)
+    if sep == nil then
+            sep = "%s"
+    end
+    local t={}
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+            table.insert(t, str)
+    end
+    return t
+end
+
+
 oldi = 0
 i = 0
 cmd = "none"
@@ -15,7 +27,8 @@ cmd = "none"
 while true do
     serveri = tonumber(get("index"))
     if serveri > oldi then
-        cmd = get("cmd")
+        cmd = split(get("cmd"), ",")
+        print(cmd[1])
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
         if cmd == "forward" then
