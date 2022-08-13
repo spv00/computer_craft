@@ -28,14 +28,14 @@ def next_step():
 def resp():
     data = flask.request.get_data().strip().split(b",")
     index = int(data[0])
-    if index >= i:
+    if index > i:
         next_step()
     return str(data)
 
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):
     global cmd
-    queue.append(cmd)
+    queue.append(newcmd)
     print(queue)
     increase()
     return f"ok - {cmd}"
