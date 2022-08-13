@@ -4,6 +4,7 @@ app = flask.Flask("app")
 
 i = 1
 turtlei = 0
+inspected = "none"
 
 queue: list = [
 
@@ -20,6 +21,12 @@ def increase():
         cmd = queue[i]
         i += 1
     return str(i)
+
+@app.route("/inspect", methods=["POST"])
+def inspect():
+    global inspected
+    inspected = flask.request.get_data().strip().split(b",")[1]
+    return inspected
 
 @app.route("/resp", methods=["POST"])
 def resp():

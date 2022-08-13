@@ -42,5 +42,12 @@ while true do
             turtle.attack()
             resp("resp", oldi, "ok")
         end
+
+        if cmd == "inspect" then
+            local sucess, data = turtle.inspect()
+            if sucess then
+                resp("inspect", oldi, data.name)
+            end
+        end
     end
 end
