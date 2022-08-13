@@ -30,6 +30,7 @@ def resp():
     print(data)
     index = int(data[0])
     if index >= i:
+        print("BRUH")
         next_step()
     return str(data)
 
