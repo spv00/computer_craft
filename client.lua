@@ -13,7 +13,6 @@ i = 0
 cmd = "none"
 
 while true do
-    oldi = 0
     serveri = tonumber(get("index"))
     print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
     if serveri > oldi then
