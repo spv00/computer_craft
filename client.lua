@@ -14,10 +14,10 @@ cmd = "none"
 
 while true do
     serveri = tonumber(get("index"))
-    print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
     if serveri > oldi then
         cmd = get("cmd")
         oldi = oldi + 1
+        print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
         if cmd == "forward" then
             turtle.forward()
             resp("resp", oldi, "ok")

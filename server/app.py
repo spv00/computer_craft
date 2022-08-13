@@ -5,10 +5,7 @@ app = flask.Flask("app")
 i = 1
 
 queue: list = [
-    "forward",
-    "forward",
-    "left",
-    "right"
+    
 ]
 
 cmd = "forward"
