@@ -5,12 +5,35 @@ app = flask.Flask("app")
 i = 0
 turtlei = 0
 inspected = "none"
+terminated = False
 
 queue: list = [
 
 ]
 
 cmd = "none"
+
+@app.route("/terminate")
+def terminate():
+    global cmd
+    cmd = "none"
+    terminated = True
+    return "Terminated"
+
+@app.route("/unterminate")
+def unterminate():
+    global terminated
+    terminated = False
+    return "Back up!"
+
+@app.route("/reset")
+def reset():
+    global queue, cmd, i, turtlei
+    cmd = "none"
+    queue = []
+    i = 0
+    turtlei = 0
+    return "Reset"
 
 @app.route("/increase")
 def increase():
@@ -55,6 +78,8 @@ def controls():
 
 @app.route("/index")
 def index():
+    if terminated:
+        return str(0)
     global i
     global turtlei
     if turtlei >= i:
