@@ -24,24 +24,24 @@
                 navigator.clipboard.writeText("pastebin run https://pastebin.com/jW4Wzg9N")
             }
         </script>
+        <h4>pastebin run https://pastebin.com/jW4Wzg9N</h4>
         <button type="button" class="btn btn-primary" onclick="copy_link()">pastebin run https://pastebin.com/jW4Wzg9N</button>
         <p></p>
-        <button type="button" class="btn btn-primary" onclick="run('left')">left</button>
-        <button type="button" class="btn btn-primary" onclick="run('right')">right</button>
         <button type="button" class="btn btn-primary" onclick="run('forward')">forward</button>
+        <button type="button" class="btn btn-primary" onclick="run('left')">left</button><button type="button" class="btn btn-primary" onclick="run('right')">right</button>
         <button type="button" class="btn btn-primary" onclick="run('back')">back</button>
         <p></p>
         <button type="button" class="btn btn-primary" onclick="run('attack')">attack</button>
         <button type="button" class="btn btn-primary" onclick="run('inspect')">inspect</button>
+        Current: {{inspected}}
         <p></p>
         <input type="text" id="setnamefield">
         <button type="button" class="btn btn-primary" onclick="run('setname+' + document.getElementById('setnamefield').value)">set name</button>
         <p></p>
         <button type="button" class="btn btn-primary" onclick="get('increase')">increase</button>
         <p></p>
-        {{index}}
-        {{command}}
-        {{queue}}
-        {{inspected}}
+        Index: {{index}}<p></p>
+        Cmd: {{command}}<p></p>
+        Queue: {{queue}}<p></p>
     </body>
 </html>
