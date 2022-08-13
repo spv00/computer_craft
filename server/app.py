@@ -49,6 +49,9 @@ def controls():
 @app.route("/index")
 def index():
     global i
+    global turtlei
+    if turtlei >= i:
+        increase()
     return str(i)
 
 @app.route("/cmd")
