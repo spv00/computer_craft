@@ -28,14 +28,6 @@ def add_headers(response: flask.Response):
 def catch_all(path):
     return ""
 
-@app.route("/abort")
-def kill():
-    global cmd, queue
-    queue.clear()
-    queue.append("abort")
-    cmd = "abort"
-    return "aborted"
-
 @app.route("/terminate")
 def terminate():
     global cmd, terminated
@@ -98,6 +90,14 @@ def setcmd(newcmd):
 def run_cmd(cmd: str, args: list):
     args.insert(0, cmd)
     setcmd('+'.join(args))
+
+@app.route("/abort")
+def kill():
+    global cmd, queue
+    queue.clear()
+    #run_cmd("abort", [])
+    cmd = "abort"
+    return "aborted"
 
 @app.route("/controls")
 def controls():
