@@ -47,6 +47,8 @@ while true do
             local sucess, data = turtle.inspect()
             if sucess then
                 resp("inspect", oldi, data.name)
+            else
+                resp("resp", oldi, "nothing to inspect")
             end
         end
     end

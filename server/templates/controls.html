@@ -13,6 +13,13 @@
                     }
                 )
             }
+            var get = function(cmd) {
+                $.get('/' + cmd,
+                    function(x) {
+                        console.log(x)
+                    }
+                )
+            }
             function copy_link(){
                 navigator.clipboard.writeText("pastebin run https://pastebin.com/jW4Wzg9N")
             }
@@ -25,6 +32,7 @@
         <button type="button" class="btn btn-primary" onclick="run('back')">back</button>
         <button type="button" class="btn btn-primary" onclick="run('attack')">attack</button>
         <button type="button" class="btn btn-primary" onclick="run('inspect')">inspect</button>
+        <button type="button" class="btn btn-primary" onclick="run('increase')">increase</button>
         <p></p>
         {{index}}
         {{command}}
