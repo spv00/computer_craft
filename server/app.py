@@ -15,15 +15,17 @@ def increase():
     global cmd
     global queue
     global i
-    cmd = queue[i]
-    i += 1
+    if len(queue) - 1 >= i:
+        cmd = queue[i]
+        i += 1
     return str(i)
 
 @app.route("/resp", methods=["POST"])
 def resp():
+    global i
     data = flask.request.get_data().strip().split(b",")
-    print(data)
     index = int(data[0])
+    print(data, index, i)
     if index >= i:
         increase()
     return str(data)
