@@ -62,7 +62,7 @@ def index():
     return str(i)
 
 @app.route("/cmd")
-def setcmd():
+def getcmd():
     global cmd
     return ' '.join(cmd)
 
