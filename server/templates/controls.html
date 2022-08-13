@@ -13,26 +13,20 @@
                     }
                 )
             }
-            /* var left = function() {
-                $.get('/setcmd/left',
-                    function(x) {
-                        console.log(x)
-                    }
-                )
+            function copy_link(){
+                navigator.clipboard.writeText("pastebin run https://pastebin.com/jW4Wzg9N")
             }
-            var right = function() {
-                $.get('/setcmd/right',
-                    function(x) {
-                        console.log(x)
-                    }
-                )
-            } */
         </script>
-        pastebin run https://pastebin.com/jW4Wzg9N
+        <button type="button" class="btn btn-primary" onclick="copy_link()">pastebin run https://pastebin.com/jW4Wzg9N</button>
+        <p></p>
         <button type="button" class="btn btn-primary" onclick="run('left')">left</button>
         <button type="button" class="btn btn-primary" onclick="run('right')">right</button>
         <button type="button" class="btn btn-primary" onclick="run('forward')">forward</button>
         <button type="button" class="btn btn-primary" onclick="run('back')">back</button>
         <button type="button" class="btn btn-primary" onclick="run('attack')">attack</button>
+        <p></p>
+        {{index}}
+        {{command}}
+        {{queue}}
     </body>
 </html>

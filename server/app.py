@@ -5,14 +5,7 @@ app = flask.Flask("app")
 i = 1
 
 queue: list = [
-    "none",
-    "none",
-    "none",
-    "none",
-    "none",
-    "none",
-    "none",
-    
+
 ]
 
 cmd = "forward"
@@ -48,7 +41,10 @@ def setcmd(newcmd):
 
 @app.route("/controls")
 def controls():
-    return flask.render_template("controls.html")
+    global i
+    global cmd
+    global queue
+    return flask.render_template("controls.html", index=i, command=cmd, queue=[f"{i}" for i in queue])
 
 @app.route("/index")
 def index():
