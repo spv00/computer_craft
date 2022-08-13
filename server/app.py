@@ -51,7 +51,8 @@ def controls():
     global i
     global cmd
     global queue
-    return flask.render_template("controls.html", index=i, command=cmd, queue=[f"{i}" for i in queue])
+    global inspected
+    return flask.render_template("controls.html", index=i, command=cmd, queue=[f"{i}" for i in queue], inspected=inspected)
 
 @app.route("/index")
 def index():
