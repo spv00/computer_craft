@@ -26,7 +26,13 @@ def add_headers(response: flask.Response):
 @app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
 @app.route('/<path:path>', methods=['OPTIONS'])
 def catch_all(path):
-  return ""
+    return ""
+
+@app.route("/kill")
+def kill():
+    global cmd
+    cmd = "abort"
+    return "aborted"
 
 @app.route("/terminate")
 def terminate():
@@ -85,7 +91,7 @@ def resp():
 def setcmd(newcmd):
     queue.append(newcmd.split("+"))
     print(queue)
-    return f"ok - {cmd}"
+    return str(len(queue) - 1)
 
 def run_cmd(cmd: str, args: list):
     args.insert(0, cmd)

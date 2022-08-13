@@ -24,6 +24,9 @@ while true do
         args = cmd
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. action)
+        if action == "abort" then
+            exit()
+        end
         if action == "forward" then
             turtle.forward()
             resp("resp", oldi, "ok")
