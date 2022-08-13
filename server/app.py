@@ -3,6 +3,7 @@ import flask
 app = flask.Flask("app")
 
 i = 1
+turtlei = 0
 
 queue: list = [
 
@@ -23,10 +24,11 @@ def increase():
 @app.route("/resp", methods=["POST"])
 def resp():
     global i
+    global turtlei
     data = flask.request.get_data().strip().split(b",")
-    index = int(data[0])
-    print(data, index, i)
-    if index >= i:
+    turtlei = int(data[0])
+    print(data, turtlei, i)
+    if turtlei >= i:
         increase()
     return str(data)
 
