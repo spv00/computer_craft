@@ -78,6 +78,7 @@ def controls():
 
 @app.route("/index")
 def index():
+    global terminated
     if terminated:
         return str(0)
     global i
