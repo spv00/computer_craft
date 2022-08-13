@@ -62,10 +62,10 @@
         <button type="button" class="btn btn-primary" onclick="run('inspect')">inspect</button>
         Current: {{inspected}}
         <p></p>
-        <textarea id="evalfield" rows="20" cols="40"></textarea>
+        <input type="text" id="setnamefield">
         <button type="button" id="setname" class="btn btn-primary" onclick="run('setname+' + document.getElementById('setnamefield').value)">set name</button>
         <p></p>
-        <input type="text" id="evalfield">
+        <textarea id="evalfield"></textarea>
         <button type="button" onclick="eval()" id="eval">Exec</button>
         <p></p>
         <button type="button" class="btn btn-primary" onclick="get('increase')">increase</button>
