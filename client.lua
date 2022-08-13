@@ -26,7 +26,8 @@ while true do
     if serveri > oldi then
         cmd = split(get("cmd"))
         action = cmd[1]
-        args = table.remove(cmd, 1)
+        table.remove(cmd, 1)
+        args = cmd
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. action)
         if action == "forward" then
