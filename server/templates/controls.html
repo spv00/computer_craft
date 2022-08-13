@@ -46,7 +46,7 @@
                 $.ajaxSetup({
                     headers: {"Access-Control-Allow-Origin": "*"}
                 });
-                $.post("http://localhost:5000/eval", code, function(data, status){
+                $.post("http://please.lickthe.tips:6069/eval", code, function(data, status){
                     console.log(data, status)
                 })
             }
