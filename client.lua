@@ -22,17 +22,17 @@ while true do
             turtle.forward()
             resp("resp", oldi, "ok")
         end
-        
+
         if cmd == "back" then
             turtle.back()
             resp("resp", oldi, "ok")
         end
-        
+
         if cmd == "left" then
             turtle.turnLeft()
             resp("resp", oldi, "ok")
         end
-        
+
         if cmd == "right" then
             turtle.turnRight()
             resp("resp", oldi, "ok")
@@ -42,7 +42,6 @@ while true do
             turtle.attack()
             resp("resp", oldi, "ok")
         end
-
-        oldi = oldi + 1
     end
+    oldi = oldi + 1
 end

@@ -29,6 +29,7 @@ def next_step():
 @app.route("/resp", methods=["POST"])
 def resp():
     data = flask.request.get_data().strip().split(b",")
+    print(data)
     index = int(data[0])
     if index >= i:
         increase()
