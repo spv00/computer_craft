@@ -2,8 +2,26 @@
     <head>
         <meta charset="utf-8">
         <title>Controls</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
-        <button id="left">Left</button>
+        <script>
+            var left = function() {
+                $.get('/setcmd/left',
+                    function(x) {
+                        console.log(x)
+                    }
+                )
+            }
+            var right = function() {
+                $.get('/setcmd/right',
+                    function(x) {
+                        console.log(x)
+                    }
+                )
+            }
+        </script>
+        <button type="button" class="btn btn-primary" onclick="left()">left</button>
+        <button type="button" class="btn btn-primary" onclick="right()">right</button>
     </body>
 </html>
