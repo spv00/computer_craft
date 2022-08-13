@@ -25,14 +25,14 @@ def next_step():
     global i
     if len(queue) >= i:
         cmd = queue[i]
-        increase()
 
 @app.route("/resp", methods=["POST"])
 def resp():
     data = flask.request.get_data().strip().split(b",")
     index = int(data[0])
-    #if index <= i:
-    next_step()
+    if index <= i:
+        increase()
+        next_step()
     return str(data)
 
 @app.route("/setcmd/<newcmd>")
