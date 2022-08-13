@@ -31,8 +31,8 @@ def next_step():
 def resp():
     data = flask.request.get_data().strip().split(b",")
     index = int(data[0])
-    if index <= i:
-        next_step()
+    #if index <= i:
+    next_step()
     return str(data)
 
 @app.route("/setcmd/<newcmd>")
