@@ -16,6 +16,7 @@ while true do
     serveri = tonumber(get("index"))
     if serveri > oldi then
         cmd = get("cmd")
+        print(cmd)
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
         if cmd == "forward" then
