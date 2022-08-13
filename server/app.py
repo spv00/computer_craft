@@ -28,7 +28,7 @@ def add_headers(response: flask.Response):
 def catch_all(path):
     return ""
 
-@app.route("/kill")
+@app.route("/abort")
 def kill():
     global cmd, queue
     queue.clear()
