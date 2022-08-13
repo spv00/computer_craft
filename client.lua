@@ -15,6 +15,7 @@ while true do
     i = tonumber(get("index"))
     if i > oldi then
         cmd = get("cmd")
+        print("i: " .. i .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
 
         if cmd == "forward" then
             turtle.forward()

@@ -2,7 +2,7 @@ import flask
 
 app = flask.Flask("app")
 
-i = 1
+i = 0
 
 queue: list = [
     "forward",
@@ -21,9 +21,11 @@ def increase():
 
 def next_step():
     global cmd
+    global queue
+    global i
     if len(queue) >= i:
-        increase()
         cmd = queue[i]
+        increase()
 
 @app.route("/resp", methods=["POST"])
 def resp():
