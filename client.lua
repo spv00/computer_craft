@@ -8,15 +8,11 @@ function resp(dir, index, data)
     http.post(url .. dir, index .. "," .. data)
 end
 
-function split (inputstr, sep)
-    if sep == nil then
-            sep = "%s"
+function split(line)
+    out = {}
+    for token in string.gmatch(line, "[^%s]+") do
+        table.insert(out, token)
     end
-    local t={}
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-            table.insert(t, str)
-    end
-    return t
 end
 
 
@@ -27,7 +23,7 @@ cmd = "none"
 while true do
     serveri = tonumber(get("index"))
     if serveri > oldi then
-        cmd = split(get("cmd"), ",")
+        cmd = split(get("cmd"))
         print(cmd[1])
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)

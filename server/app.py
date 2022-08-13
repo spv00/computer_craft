@@ -64,7 +64,7 @@ def index():
 @app.route("/cmd")
 def test():
     global cmd
-    return ','.join(cmd)
+    return ' '.join(cmd)
 
 if __name__ == "__main__":
     app.run()
