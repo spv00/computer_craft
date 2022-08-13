@@ -14,6 +14,11 @@ def increase():
     i += 1
     return str(i)
 
+@app.route("/resp", methods=["POST"])
+def resp():
+    print(flask.request.get_data())
+    return flask.request.get_data()
+
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):
     global cmd

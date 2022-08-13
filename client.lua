@@ -19,7 +19,7 @@ while true do
 
         if cmd == "forward" then
             turtle.forward()
-            resp()
+            resp("resp", "ok")
         end
         
         if cmd == "back" then
