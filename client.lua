@@ -8,7 +8,7 @@ function resp(dir, index, data)
     http.post(url .. dir, index .. "," .. data)
 end
 
-oldi = -1
+oldi = 0
 i = 0
 cmd = "none"
 
@@ -44,6 +44,6 @@ while true do
             resp("resp", oldi, "ok")
         end
 
-        oldi = 5
+        oldi = oldi + 1
     end
 end
