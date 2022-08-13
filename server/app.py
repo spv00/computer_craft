@@ -12,7 +12,7 @@ def increase():
     i += 1
     return str(i)
 
-@app.route("controls")
+@app.route("/controls")
 def controls():
     return flask.render_template("controls.html")
 
