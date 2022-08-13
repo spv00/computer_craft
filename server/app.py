@@ -41,7 +41,7 @@ def resp():
 
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):
-    queue.append(newcmd.split(","))
+    queue.append(list(newcmd.split(",")))
     print(queue)
     return f"ok - {cmd}"
 
