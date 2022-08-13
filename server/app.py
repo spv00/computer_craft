@@ -8,20 +8,16 @@ queue: list = [
 
 ]
 
-cmd = "forward"
+cmd = "left"
 
 @app.route("/increase")
 def increase():
-    global i
-    i += 1
-    return str(i)
-
-def next_step():
     global cmd
     global queue
     global i
     cmd = queue[i]
-    increase()
+    i += 1
+    return str(i)
 
 @app.route("/resp", methods=["POST"])
 def resp():
@@ -29,7 +25,7 @@ def resp():
     print(data)
     index = int(data[0])
     if index >= i:
-        next_step()
+        increase()
     return str(data)
 
 @app.route("/setcmd/<newcmd>")
