@@ -20,7 +20,8 @@ def increase():
 
 def next_step():
     global cmd
-    increase()
+    if len(queue) >= i:
+        increase()
     cmd = queue[i]
 
 @app.route("/resp", methods=["POST"])
@@ -34,7 +35,8 @@ def resp():
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):
     global cmd
-    cmd = newcmd
+    queue.append(cmd)
+    print(queue)
     increase()
     return f"ok - {cmd}"
 
