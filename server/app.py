@@ -87,6 +87,10 @@ def setcmd(newcmd):
     print(queue)
     return f"ok - {cmd}"
 
+def run_cmd(cmd: str, args: list):
+    full = args.insert(cmd)
+    setcmd('+'.join(full))
+
 @app.route("/controls")
 def controls():
     global i
