@@ -2,7 +2,7 @@ import flask
 
 app = flask.Flask("app")
 
-i = 1
+i = 0
 turtlei = 0
 inspected = "none"
 
