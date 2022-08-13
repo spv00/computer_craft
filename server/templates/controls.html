@@ -6,7 +6,14 @@
     </head>
     <body>
         <script>
-            var left = function() {
+            var run = function(cmd) {
+                $.get('/setcmd/' + cmd,
+                    function(x) {
+                        console.log(x)
+                    }
+                )
+            }
+            /* var left = function() {
                 $.get('/setcmd/left',
                     function(x) {
                         console.log(x)
@@ -19,9 +26,11 @@
                         console.log(x)
                     }
                 )
-            }
+            } */
         </script>
-        <button type="button" class="btn btn-primary" onclick="left()">left</button>
-        <button type="button" class="btn btn-primary" onclick="right()">right</button>
+        <button type="button" class="btn btn-primary" onclick="run('left')">left</button>
+        <button type="button" class="btn btn-primary" onclick="run('right')">right</button>
+        <button type="button" class="btn btn-primary" onclick="run('forward')">forward</button>
+        <button type="button" class="btn btn-primary" onclick="run('back')">back</button>
     </body>
 </html>
