@@ -13,6 +13,7 @@ function split(line)
     for token in string.gmatch(line, "[^%s]+") do
         table.insert(out, token)
     end
+    return out
 end
 
 
@@ -24,40 +25,46 @@ while true do
     serveri = tonumber(get("index"))
     if serveri > oldi then
         cmd = split(get("cmd"))
-        print(cmd[1])
+        action = cmd[1]
+        args = table.remove(cmd, 1)
         oldi = oldi + 1
-        print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
-        if cmd == "forward" then
+        print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. action)
+        if action == "forward" then
             turtle.forward()
             resp("resp", oldi, "ok")
         end
 
-        if cmd == "back" then
+        if action == "back" then
             turtle.back()
             resp("resp", oldi, "ok")
         end
 
-        if cmd == "left" then
+        if action == "left" then
             turtle.turnLeft()
             resp("resp", oldi, "ok")
         end
 
-        if cmd == "right" then
+        if action == "right" then
             turtle.turnRight()
             resp("resp", oldi, "ok")
         end
 
-        if cmd == "attack" then
+        if action == "attack" then
             turtle.attack()
             resp("resp", oldi, "ok")
         end
 
-        if cmd == "inspect" then
+        if action == "inspect" then
             local sucess, data = turtle.inspect()
             if sucess then
                 resp("inspect", oldi, data.name)
             end
             resp("resp", oldi, "inspected")
+        end
+
+        if action == "setname" then
+            os.setComputerLabel(table.concat(args, " "))
+            resp("resp", oldi, "ok")
         end
     end
 end
