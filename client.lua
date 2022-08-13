@@ -15,7 +15,6 @@ while true do
     i = tonumber(get("index"))
     if i > oldi then
         cmd = get("cmd")
-        i = i + 1
 
         if cmd == "forward" then
             turtle.forward()
@@ -41,5 +40,7 @@ while true do
             turtle.attack()
             resp("resp", i, "ok")
         end
+
+        i = i + 1
     end
 end
