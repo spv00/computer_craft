@@ -2,9 +2,13 @@ import flask
 
 app = flask.Flask("app")
 
-i = 1
+i = 0
 
-queue: list = []
+queue: list = [
+    "forward",
+    "left",
+    "right"
+]
 
 cmd = "forward"
 
@@ -14,10 +18,18 @@ def increase():
     i += 1
     return str(i)
 
+def next_step():
+    global cmd
+    increase()
+    cmd = queue[i]
+
 @app.route("/resp", methods=["POST"])
 def resp():
-    print(flask.request.get_data())
-    return flask.request.get_data()
+    data = flask.request.get_data().strip().split(b",")
+    index = int(data[0])
+    if index > i:
+        next_step()
+    return str(data)
 
 @app.route("/setcmd/<newcmd>")
 def setcmd(newcmd):

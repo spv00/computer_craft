@@ -4,8 +4,8 @@ function get(dir)
     return http.get(url .. dir).readAll()
 end
 
-function resp(dir, data)
-    http.post(url .. dir, data)
+function resp(dir, index, data)
+    http.post(url .. dir, index .. "," .. data)
 end
 
 i = 0
@@ -19,27 +19,27 @@ while true do
 
         if cmd == "forward" then
             turtle.forward()
-            resp("resp", "ok")
+            resp("resp", i, "ok")
         end
         
         if cmd == "back" then
             turtle.back()
-            resp()
+            resp("resp", i, "ok")
         end
         
         if cmd == "left" then
             turtle.turnLeft()
-            resp()
+            resp("resp", i, "ok")
         end
         
         if cmd == "right" then
             turtle.turnRight()
-            resp()
+            resp("resp", i, "ok")
         end
 
         if cmd == "attack" then
             turtle.attack()
-            resp()
+            resp("resp", i, "ok")
         end
     end
 end
