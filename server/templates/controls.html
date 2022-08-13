@@ -39,6 +39,17 @@
                 }
                 });
             })
+
+            let inputValue;
+            var eval = function(){
+                code = document.getElementById("evalfield").value
+                $.ajaxSetup({
+                    headers: {"Access-Control-Allow-Origin": "*"}
+                });
+                $.post("http://localhost:5000/eval", code, function(data, status){
+                    console.log(data, status)
+                })
+            }
         </script>
         <h4>pastebin run https://pastebin.com/jW4Wzg9N</h4>
         <button type="button" class="btn btn-primary" onclick="copy_link()">pastebin run https://pastebin.com/jW4Wzg9N</button>
@@ -53,6 +64,9 @@
         <p></p>
         <input type="text" id="setnamefield">
         <button type="button" id="setname" class="btn btn-primary" onclick="run('setname+' + document.getElementById('setnamefield').value)">set name</button>
+        <p></p>
+        <input type="text" id="evalfield">
+        <button type="button" onclick="eval()" id="eval">Exec</button>
         <p></p>
         <button type="button" class="btn btn-primary" onclick="get('increase')">increase</button>
         <button type="button" class="btn btn-primary" onclick="get('reset')">reset!</button>
