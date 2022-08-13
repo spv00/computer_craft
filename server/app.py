@@ -32,6 +32,7 @@ def catch_all(path):
 def kill():
     global cmd
     cmd = "abort"
+    exit()
     return "aborted"
 
 @app.route("/terminate")
