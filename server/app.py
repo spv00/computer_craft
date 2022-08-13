@@ -88,7 +88,7 @@ def setcmd(newcmd):
     return f"ok - {cmd}"
 
 def run_cmd(cmd: str, args: list):
-    full = args.insert(cmd)
+    full = args.insert(cmd, 0)
     setcmd('+'.join(full))
 
 @app.route("/controls")
