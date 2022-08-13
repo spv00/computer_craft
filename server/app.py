@@ -5,6 +5,13 @@ app = flask.Flask("app")
 i = 1
 
 queue: list = [
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
     
 ]
 
