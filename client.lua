@@ -8,40 +8,42 @@ function resp(dir, index, data)
     http.post(url .. dir, index .. "," .. data)
 end
 
+oldi = -1
 i = 0
+cmd = "none"
 
 while true do
-    oldi = i
-    i = tonumber(get("index"))
-    if i > oldi then
+    oldi = 0
+    serveri = tonumber(get("index"))
+    print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
+    if serveri > oldi then
         cmd = get("cmd")
-        print("i: " .. i .. "  oldi: " .. oldi .. "  cmd: " .. cmd)
 
         if cmd == "forward" then
             turtle.forward()
-            resp("resp", i, "ok")
+            resp("resp", oldi, "ok")
         end
         
         if cmd == "back" then
             turtle.back()
-            resp("resp", i, "ok")
+            resp("resp", oldi, "ok")
         end
         
         if cmd == "left" then
             turtle.turnLeft()
-            resp("resp", i, "ok")
+            resp("resp", oldi, "ok")
         end
         
         if cmd == "right" then
             turtle.turnRight()
-            resp("resp", i, "ok")
+            resp("resp", oldi, "ok")
         end
 
         if cmd == "attack" then
             turtle.attack()
-            resp("resp", i, "ok")
+            resp("resp", oldi, "ok")
         end
 
-        i = i + 1
+        oldi = 5
     end
 end
