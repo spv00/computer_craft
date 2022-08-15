@@ -25,6 +25,7 @@ while true do
         oldi = oldi + 1
         print("i: " .. serveri .. "  oldi: " .. oldi .. "  cmd: " .. action)
         if action == "abort" then
+            os.shutdown()
             exit()
         end
         if action == "forward" then
@@ -59,6 +60,9 @@ while true do
         if action == "setname" then
             os.setComputerLabel(table.concat(args, " "))
             resp("resp", oldi, "ok")
+        end
+        if action == "chat" then
+            peripheral.find("modem").transmit(69, 69, table.concat(args, " "))
         end
     end
 end
